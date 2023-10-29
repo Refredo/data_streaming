@@ -29,7 +29,7 @@ def transform_data(data) -> dict:
 
 def get_kafka_producer():
     producer = KafkaProducer(
-        bootstrap_servers=['localhost:29092', 'localhost:29093'],
+        bootstrap_servers=['localhost:29092'],
         value_serializer=lambda x: json.dumps(x).encode('utf-8'),
         acks='all',
         linger_ms=1000,
