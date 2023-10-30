@@ -29,11 +29,11 @@ def transform_data(data) -> dict:
 
 def get_kafka_producer():
     producer = KafkaProducer(
-        bootstrap_servers=['localhost:29092'],
+        bootstrap_servers=['kafka:9092'],
         value_serializer=lambda x: json.dumps(x).encode('utf-8'),
         acks='all',
         linger_ms=1000,
-        request_timeout_ms = 60000)
+        request_timeout_ms = 10000)
 
     if producer.bootstrap_connected():
         print("KafkaProducer connected successfully.")
