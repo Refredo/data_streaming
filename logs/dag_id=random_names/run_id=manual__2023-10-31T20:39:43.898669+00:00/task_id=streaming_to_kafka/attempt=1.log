@@ -1,0 +1,28 @@
+[2023-10-31T20:40:07.155+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: random_names.streaming_to_kafka manual__2023-10-31T20:39:43.898669+00:00 [queued]>
+[2023-10-31T20:40:07.164+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: random_names.streaming_to_kafka manual__2023-10-31T20:39:43.898669+00:00 [queued]>
+[2023-10-31T20:40:07.165+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2023-10-31T20:40:07.208+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): streaming_to_kafka> on 2023-10-31 20:39:43.898669+00:00
+[2023-10-31T20:40:07.212+0000] {standard_task_runner.py:57} INFO - Started process 248 to run task
+[2023-10-31T20:40:07.214+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'random_names', 'streaming_to_kafka', 'manual__2023-10-31T20:39:43.898669+00:00', '--job-id', '66', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmptuegt6g1']
+[2023-10-31T20:40:07.215+0000] {standard_task_runner.py:85} INFO - Job 66: Subtask streaming_to_kafka
+[2023-10-31T20:40:07.258+0000] {task_command.py:415} INFO - Running <TaskInstance: random_names.streaming_to_kafka manual__2023-10-31T20:39:43.898669+00:00 [running]> on host 5306fede0ec7
+[2023-10-31T20:40:07.350+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='random_names' AIRFLOW_CTX_TASK_ID='streaming_to_kafka' AIRFLOW_CTX_EXECUTION_DATE='2023-10-31T20:39:43.898669+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-10-31T20:39:43.898669+00:00'
+[2023-10-31T20:40:07.965+0000] {logging_mixin.py:151} INFO - {'full name': 'Mr Mikolaj Grimsrud', 'gender': 'male', 'location': 'Sjølyst plass 379', 'city': 'Hjelmelandsvågen', 'country': 'Norway', 'postcode': '6879', 'latitude': '42.1891', 'longtitude': '-174.7401', 'email': 'mikolaj.grimsrud@example.com'}
+[2023-10-31T20:40:07.973+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.21.0.6', 9092)]>: connecting to kafka:9092 [('172.21.0.6', 9092) IPv4]
+[2023-10-31T20:40:07.974+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2023-10-31T20:40:07.977+0000] {conn.py:410} INFO - <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connecting> [IPv4 ('172.21.0.6', 9092)]>: Connection complete.
+[2023-10-31T20:40:08.081+0000] {conn.py:1267} INFO - Broker version identified as 2.5.0
+[2023-10-31T20:40:08.081+0000] {conn.py:1268} INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+[2023-10-31T20:40:08.083+0000] {logging_mixin.py:151} INFO - KafkaProducer connected successfully.
+[2023-10-31T20:40:08.236+0000] {conn.py:380} INFO - <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.21.0.6', 9092)]>: connecting to kafka:9092 [('172.21.0.6', 9092) IPv4]
+[2023-10-31T20:40:08.237+0000] {conn.py:410} INFO - <BrokerConnection node_id=1 host=kafka:9092 <connecting> [IPv4 ('172.21.0.6', 9092)]>: Connection complete.
+[2023-10-31T20:40:08.237+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=kafka:9092 <connected> [IPv4 ('172.21.0.6', 9092)]>: Closing connection. 
+[2023-10-31T20:40:12.011+0000] {logging_mixin.py:151} INFO - Message sent successfully to topic: random_names
+[2023-10-31T20:40:12.603+0000] {logging_mixin.py:151} INFO - Message sent to partition: 0
+[2023-10-31T20:40:12.603+0000] {logging_mixin.py:151} INFO - Message offset: 0
+[2023-10-31T20:40:12.604+0000] {kafka.py:483} INFO - Closing the Kafka producer with 9223372036.0 secs timeout.
+[2023-10-31T20:40:12.606+0000] {conn.py:919} INFO - <BrokerConnection node_id=1 host=kafka:9092 <connected> [IPv4 ('172.21.0.6', 9092)]>: Closing connection. 
+[2023-10-31T20:40:12.608+0000] {python.py:194} INFO - Done. Returned value was: None
+[2023-10-31T20:40:18.662+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=random_names, task_id=streaming_to_kafka, execution_date=20231031T203943, start_date=20231031T204007, end_date=20231031T204018
+[2023-10-31T20:40:19.389+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2023-10-31T20:40:19.425+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

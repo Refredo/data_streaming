@@ -17,5 +17,4 @@ with DAG(
         python_callable=start_streaming
     )
 
-
     streaming_to_kafka
