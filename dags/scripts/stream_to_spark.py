@@ -11,7 +11,7 @@ logger = logging.getLogger("spark_streaming")
 def create_spark_session():
     try:
         spark = SparkSession \
-                .builder() \
+                .builder \
                 .appName("SparkStreaming") \
                 .config("spark.jars.packages", "com.datastax.spark:spark-cassandra-connector_2.12:3.0.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0") \
                 .config("spark.cassandra.connection.host", "cassandra") \
@@ -21,26 +21,45 @@ def create_spark_session():
                 .getOrCreate()
         spark.sparkContext.setLogLevel("ERROR")
         logging.info('Spark session created successfully')
-    except Exception:
-        logging.info("Couldn't create Spark session")
+    except Exception as e:
+        logging.info(f"Couldn't create Spark session: {e}")
 
     return spark
 
+# def create_initial_dataframe(spark_session):
+#     try:
+#         df = spark_session \
+#             .readStream \
+#             .format('kafka') \
+#             .option('kafka.bootstrap.servers', 'kafka:9092') \
+#             .option('subscribe', 'random_names') \
+#             .option('delimiter', ',') \
+#             .option('startingOffsets', 'earliest') \
+#             .load()
+#         logging.info('Initial dataframe created successfully')
+#     except Exception as e:
+#         logging.warning(f"Initial dataframe couldn't be created due to exception: {e}")
+
+#     return df
+
 def create_initial_dataframe(spark_session):
+
     try:
+        # Gets the streaming data from topic random_names
         df = spark_session \
-            .readStream \
-            .format('kafka') \
-            .option('kafka.bootstrap.servers', 'kafka:9092') \
-            .option('subscribe', 'random_names') \
-            .option('delimiter', ',') \
-            .option('startingOffsets', 'earliest') \
-            .load()
-        logging.info('Initial dataframe created successfully')
+              .readStream \
+              .format("kafka") \
+              .option("kafka.bootstrap.servers", "kafka:9092") \
+              .option("subscribe", "random_names") \
+              .option("delimeter",",") \
+              .option("startingOffsets", "earliest") \
+              .load()
+        logging.info("Initial dataframe created successfully")
     except Exception as e:
         logging.warning(f"Initial dataframe couldn't be created due to exception: {e}")
 
     return df
+
 
 def create_final_dataframe(df, spark_session):
 
