@@ -13,27 +13,29 @@ def get_API_data():
 
 def transform_data(data) -> dict:
     dct = {}
-    dct['full name'] = data['name']['title'] + ' ' + data['name']['first'] + ' ' + data['name']['last']
+    dct['full_name'] = data['name']['title'] + ' ' + data['name']['first'] + ' ' + data['name']['last']
     dct['gender'] = data['gender']
     dct['location'] = data['location']['street']['name'] + ' ' + str(data['location']['street']['number'])
     dct['city'] = data['location']['city']
     dct['country'] = data['location']['country']
     dct['postcode'] = data['location']['postcode']
-    dct['latitude'] = data['location']['coordinates']['latitude']
-    dct['longtitude'] = data['location']['coordinates']['longitude']
+    dct['latitude'] = float(data['location']['coordinates']['latitude'])
+    dct['longitude'] = float(data['location']['coordinates']['longitude'])
     dct['email'] = data['email']
 
     return dct
-
-#key_serializer=lambda x: x.encode('utf-8'),
 
 def get_kafka_producer():
     producer = KafkaProducer(
         bootstrap_servers=['kafka:9092'],
         value_serializer=lambda x: json.dumps(x).encode('utf-8'),
+        key_serializer=lambda x: x.encode('utf-8'),
         acks='all',
         linger_ms=1000,
-        request_timeout_ms = 10000)
+        request_timeout_ms = 60000,
+        #api_version=(2, 5, 0),
+        connections_max_idle_ms=1000000
+        )
 
     if producer.bootstrap_connected():
         print("KafkaProducer connected successfully.")
@@ -49,7 +51,7 @@ def start_streaming():
     
     producer = get_kafka_producer()
 
-    future = producer.send('random_names', value=data)
+    future = producer.send('random_namess', value=data, key='key')
     
     producer.flush()
 

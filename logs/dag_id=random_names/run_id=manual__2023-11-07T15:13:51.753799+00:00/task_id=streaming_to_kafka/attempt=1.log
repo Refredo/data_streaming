@@ -1,0 +1,115 @@
+[2023-11-07T15:13:55.455+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: random_names.streaming_to_kafka manual__2023-11-07T15:13:51.753799+00:00 [queued]>
+[2023-11-07T15:13:55.462+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: random_names.streaming_to_kafka manual__2023-11-07T15:13:51.753799+00:00 [queued]>
+[2023-11-07T15:13:55.462+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2023-11-07T15:13:55.485+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): streaming_to_kafka> on 2023-11-07 15:13:51.753799+00:00
+[2023-11-07T15:13:55.489+0000] {standard_task_runner.py:57} INFO - Started process 215 to run task
+[2023-11-07T15:13:55.491+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'random_names', 'streaming_to_kafka', 'manual__2023-11-07T15:13:51.753799+00:00', '--job-id', '86', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpl8qvld1l']
+[2023-11-07T15:13:55.494+0000] {standard_task_runner.py:85} INFO - Job 86: Subtask streaming_to_kafka
+[2023-11-07T15:13:55.546+0000] {task_command.py:415} INFO - Running <TaskInstance: random_names.streaming_to_kafka manual__2023-11-07T15:13:51.753799+00:00 [running]> on host 89bb4cd4ef50
+[2023-11-07T15:13:55.720+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='random_names' AIRFLOW_CTX_TASK_ID='streaming_to_kafka' AIRFLOW_CTX_EXECUTION_DATE='2023-11-07T15:13:51.753799+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-07T15:13:51.753799+00:00'
+[2023-11-07T15:13:57.172+0000] {logging_mixin.py:151} INFO - {'full_name': 'Miss Justine Williams', 'gender': 'female', 'location': 'Frederick Ave 6286', 'city': 'Carleton', 'country': 'Canada', 'postcode': 'S1N 3A3', 'latitude': -66.927, 'longitude': 99.4755, 'email': 'justine.williams@example.com'}
+[2023-11-07T15:13:57.176+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:57.177+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2023-11-07T15:13:57.177+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.178+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.226+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:57.226+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.227+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.276+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: connecting to localhost:29092 [('::1', 29092, 0, 0) IPv6]
+[2023-11-07T15:13:57.276+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:57.276+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:57.277+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:57.277+0000] {conn.py:1205} INFO - Probing node bootstrap-1 broker version
+[2023-11-07T15:13:57.278+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.278+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.327+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:57.327+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.328+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.377+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: connecting to localhost:29093 [('::1', 29093, 0, 0) IPv6]
+[2023-11-07T15:13:57.377+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:57.377+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:57.378+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:57.378+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2023-11-07T15:13:57.378+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.379+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.427+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:57.427+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.427+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.476+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: connecting to localhost:29092 [('::1', 29092, 0, 0) IPv6]
+[2023-11-07T15:13:57.476+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:57.476+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:57.476+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:57.477+0000] {conn.py:1205} INFO - Probing node bootstrap-1 broker version
+[2023-11-07T15:13:57.477+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.477+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.532+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:57.532+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.532+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.587+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: connecting to localhost:29093 [('::1', 29093, 0, 0) IPv6]
+[2023-11-07T15:13:57.587+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:57.587+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:57.587+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:57.588+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2023-11-07T15:13:57.588+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.588+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.684+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:57.684+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.684+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.780+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: connecting to localhost:29092 [('::1', 29092, 0, 0) IPv6]
+[2023-11-07T15:13:57.781+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:57.781+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:57.781+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:57.781+0000] {conn.py:1205} INFO - Probing node bootstrap-1 broker version
+[2023-11-07T15:13:57.782+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.782+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:57.898+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:57.898+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:57.899+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:58.015+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: connecting to localhost:29093 [('::1', 29093, 0, 0) IPv6]
+[2023-11-07T15:13:58.015+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:58.015+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:58.016+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:58.016+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2023-11-07T15:13:58.016+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:58.016+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:58.230+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:58.231+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:58.231+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:58.445+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: connecting to localhost:29092 [('::1', 29092, 0, 0) IPv6]
+[2023-11-07T15:13:58.446+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:58.446+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv6 ('::1', 29092, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:58.446+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:58.446+0000] {conn.py:1205} INFO - Probing node bootstrap-1 broker version
+[2023-11-07T15:13:58.446+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:58.446+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:58.654+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: connecting to localhost:29093 [('127.0.0.1', 29093) IPv4]
+[2023-11-07T15:13:58.654+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:58.654+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv4 ('127.0.0.1', 29093)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:58.862+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: connecting to localhost:29093 [('::1', 29093, 0, 0) IPv6]
+[2023-11-07T15:13:58.862+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]> returned error 99. Disconnecting.
+[2023-11-07T15:13:58.862+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-1 host=localhost:29093 <connecting> [IPv6 ('::1', 29093, 0, 0)]>: Closing connection. KafkaConnectionError: 99 EADDRNOTAVAIL
+[2023-11-07T15:13:58.863+0000] {conn.py:380} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: connecting to localhost:29092 [('127.0.0.1', 29092) IPv4]
+[2023-11-07T15:13:58.863+0000] {conn.py:1205} INFO - Probing node bootstrap-0 broker version
+[2023-11-07T15:13:58.863+0000] {conn.py:418} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]> returned error 111. Disconnecting.
+[2023-11-07T15:13:58.863+0000] {conn.py:919} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:29092 <connecting> [IPv4 ('127.0.0.1', 29092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2023-11-07T15:13:59.175+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/script.py", line 52, in start_streaming
+    producer = get_kafka_producer()
+  File "/opt/airflow/dags/scripts/script.py", line 29, in get_kafka_producer
+    producer = KafkaProducer(
+  File "/home/airflow/.local/lib/python3.8/site-packages/kafka/producer/kafka.py", line 381, in __init__
+    client = KafkaClient(metrics=self._metrics, metric_group_prefix='producer',
+  File "/home/airflow/.local/lib/python3.8/site-packages/kafka/client_async.py", line 244, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+  File "/home/airflow/.local/lib/python3.8/site-packages/kafka/client_async.py", line 927, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2023-11-07T15:13:59.182+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=random_names, task_id=streaming_to_kafka, execution_date=20231107T151351, start_date=20231107T151355, end_date=20231107T151359
+[2023-11-07T15:13:59.235+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 86 for task streaming_to_kafka (NoBrokersAvailable; 215)
+[2023-11-07T15:13:59.273+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-07T15:13:59.318+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -13,7 +13,6 @@ def create_spark_session():
         spark = SparkSession \
                 .builder \
                 .appName("SparkStreaming") \
-                .config("spark.jars.packages", "com.datastax.spark:spark-cassandra-connector_2.12:3.0.0,org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0") \
                 .config("spark.cassandra.connection.host", "cassandra") \
                 .config("spark.cassandra.connection.port","9042")\
                 .config("spark.cassandra.auth.username", "cassandra") \
@@ -50,7 +49,7 @@ def create_initial_dataframe(spark_session):
               .readStream \
               .format("kafka") \
               .option("kafka.bootstrap.servers", "kafka:9092") \
-              .option("subscribe", "random_names") \
+              .option("subscribe", "random_namess") \
               .option("delimeter",",") \
               .option("startingOffsets", "earliest") \
               .load()
@@ -58,6 +57,8 @@ def create_initial_dataframe(spark_session):
     except Exception as e:
         logging.warning(f"Initial dataframe couldn't be created due to exception: {e}")
 
+    df.printSchema()
+    
     return df
 
 
@@ -75,9 +76,9 @@ def create_final_dataframe(df, spark_session):
         StructField("email",StringType(),False)
     ])
 
-    df = df.selectExpr("CAST(value AS STRING)").select(from_json(col('value'), schema).alias('data')).select('data.*')
-    print(df)
-    return df
+    df1 = df.selectExpr("CAST(value AS STRING)").select(from_json(col('value'), schema).alias('data')).select('data.*')
+    print(f'this is my df: {df1}')
+    return df1
 
 def start_streaming(df):
     logging.info('Streaming is being started...')
@@ -85,6 +86,7 @@ def start_streaming(df):
     query = (df.writeStream
                 .format('org.apache.spark.sql.cassandra')
                 .outputMode('append')
+                .option("checkpointLocation", "/tmp/checkpoints")
                 .options(table='random_names', keyspace='spark_streaming') \
                 .start())
 
@@ -92,10 +94,10 @@ def start_streaming(df):
 
 
 def streaming_to_cassandra():
-    spark = create_spark_session()
+    spark = create_spark_session()    
     df = create_initial_dataframe(spark)
-    df = create_final_dataframe(df, spark)
-    start_streaming(df)
+    df_final = create_final_dataframe(df, spark)
+    start_streaming(df_final)
 
 
 if __name__ == "__main__":
