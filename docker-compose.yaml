@@ -2,12 +2,10 @@ version: '3.8'
 x-airflow-common:
   &airflow-common
   image: ${AIRFLOW_IMAGE_NAME:-extending_airflow:latest}
-  # build: .
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    # For backward compatibility, with Airflow <2.3
     AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
@@ -106,7 +104,6 @@ services:
       - airflow-kafka
     <<: *airflow-common
     entrypoint: /bin/bash
-    # yamllint disable rule:line-length
     command:
       - -c
       - |
@@ -169,7 +166,6 @@ services:
         mkdir -p /sources/logs /sources/dags /sources/plugins
         chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
         exec /entrypoint airflow version
-    # yamllint enable rule:line-length
     environment:
       <<: *airflow-common-env
       _AIRFLOW_DB_MIGRATE: 'true'
@@ -190,7 +186,6 @@ services:
     environment:
       <<: *airflow-common-env
       CONNECTION_CHECK_MAX_COUNT: "0"
-    # Workaround for entrypoint issue. See: https://github.com/apache/airflow/issues/16252
     command:
       - bash
       - -c
@@ -225,29 +220,11 @@ services:
       - kafka-network
       - airflow-kafka
 
-  #kafka2:
-    #image: confluentinc/cp-kafka:latest
-    #hostname: kafka2
-    #depends_on:
-    #  - zookeeper
-    #ports:
-    #  - 29093:29092
-    #environment:
-    #  KAFKA_BROKER_ID: 2
-    #  KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-    #  KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka2:9093,PLAINTEXT_HOST://localhost:29093
-    #  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-    #  KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-    #  KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    #networks:
-    #  - kafka-network
-
   kafka-ui:
     image: provectuslabs/kafka-ui
     depends_on:
       - zookeeper
       - kafka
-    #  - kafka2
     container_name: kafka-ui
     ports:
       - 8090:8080

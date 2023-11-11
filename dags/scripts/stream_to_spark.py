@@ -25,26 +25,9 @@ def create_spark_session():
 
     return spark
 
-# def create_initial_dataframe(spark_session):
-#     try:
-#         df = spark_session \
-#             .readStream \
-#             .format('kafka') \
-#             .option('kafka.bootstrap.servers', 'kafka:9092') \
-#             .option('subscribe', 'random_names') \
-#             .option('delimiter', ',') \
-#             .option('startingOffsets', 'earliest') \
-#             .load()
-#         logging.info('Initial dataframe created successfully')
-#     except Exception as e:
-#         logging.warning(f"Initial dataframe couldn't be created due to exception: {e}")
-
-#     return df
-
 def create_initial_dataframe(spark_session):
 
     try:
-        # Gets the streaming data from topic random_names
         df = spark_session \
               .readStream \
               .format("kafka") \

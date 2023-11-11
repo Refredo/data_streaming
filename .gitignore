@@ -4,3 +4,4 @@ logs/dag_processor_manager
 logs/scheduler
 dags/__pycache__
 dags/scripts/__pycache__
+.gitignore
